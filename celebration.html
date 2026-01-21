@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday My Love 💕</title>
+    <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <audio id="birthdaySong" preload="auto" loop>
+    <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+
+    <!-- Floating Background Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1 class="typewriter" id="typewriter">Happy Birthday, Baby! 💕</h1>
+            <p class="subtitle fade-in">Today is all about celebrating you and the joy you bring to my life</p>
+            <div class="floating-hearts">
+                <div class="heart">❤️</div>
+                <div class="heart">💖</div>
+                <div class="heart">💕</div>
+                <div class="heart">💗</div>
+                <div class="heart">❤️</div>
+            </div>
+            <button class="cta-button" onclick="startCelebration()">
+                Start the Celebration 🎉
+            </button>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Our Beautiful Memories</h2>
+            <div class="gallery-grid">
+                <div class="photo-card" data-aos="fade-up" data-delay="100">
+                    <div class="photo-container">
+                        <img src="image/img1.jpeg"
+                            alt="Beautiful moment">
+                        <div class="photo-overlay">
+                            <div class="photo-caption">You’re my favorite place to be</div>
+                            <button class="like-btn" onclick="toggleLike(this)">
+                                <span class="heart-icon">🤍</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="photo-card" data-aos="fade-up" data-delay="200">
+                    <div class="photo-container">
+                        <img src="image/img2.jpeg"
+                            alt="Sweet memory">
+                        <div class="photo-overlay">
+                            <div class="photo-caption">With you, everything feels right</div>
+                            <button class="like-btn" onclick="toggleLike(this)">
+                                <span class="heart-icon">🤍</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="photo-card" data-aos="fade-up" data-delay="300">
+                    <div class="photo-container">
+                        <img src="image/img3.jpeg"
+                            alt="Happy times">
+                        <div class="photo-overlay">
+                            <div class="photo-caption">You’re the reason my days smile</div>
+                            <button class="like-btn" onclick="toggleLike(this)">
+                                <span class="heart-icon">🤍</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="photo-card" data-aos="fade-up" data-delay="400">
+                    <div class="photo-container">
+                        <img src="image/img4.jpeg"
+                            alt="Love moment">
+                        <div class="photo-overlay">
+                            <div class="photo-caption">My heart chose you, every single time</div>
+                            <button class="like-btn" onclick="toggleLike(this)">
+                                <span class="heart-icon">🤍</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="photo-card" data-aos="fade-up" data-delay="500">
+                    <div class="photo-container">
+                        <img src="image/img5.jpeg"
+                            alt="Beautiful day">
+                        <div class="photo-overlay">
+                            <div class="photo-caption">Life is better because you’re in it</div>
+                            <button class="like-btn" onclick="toggleLike(this)">
+                                <span class="heart-icon">🤍</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="photo-card" data-aos="fade-up" data-delay="600">
+                    <div class="photo-container">
+                        <img src="image/img6.jpeg"
+                            alt="Romantic moment">
+                        <div class="photo-overlay">
+                            <div class="photo-caption">You’re not just my love, you’re my peace</div>
+                            <button class="like-btn" onclick="toggleLike(this)">
+                                <span class="heart-icon">🤍</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Birthday Message Section -->
+    <section class="message-section" id="message">
+        <div class="container">
+            <div class="message-card">
+                <h2 class="message-title">A Special Message for You</h2>
+                <div class="message-content">
+                    <p class="message-text fade-in-text">
+                        🎉💖✨ Happy Birthday, my love! ✨💖🎉
+                    </p>
+                    <p class="message-text fade-in-text">
+                        Today is all about YOU—the most amazing, caring, and handsome person who makes my world brighter
+                        every single day 🌍☀️. I feel so lucky to have you in my life, and I can’t stop smiling when I
+                        think about all the memories we’ve made together 🥰📸. Thank you for always making me laugh 😂,
+                        for holding me when I’m down 🤗, and for loving me in ways I never thought possible 💌. On your
+                        special day, I just want to remind you how much you mean to me 💎💖. You deserve all the
+                        happiness in the universe 🌌🌟, endless success 💼🚀, and a lifetime of love 💞. I promise to
+                        keep celebrating you—not just today, but every single day we’re together 💍💫. So here’s to more
+                        adventures 🌍✈️, more late-night talks 🌙💬, more silly moments 🤪🍕, and more dreams we’ll
+                        chase side by side 🌈✨.
+                    </p>
+                    <p class="message-signature fade-in-text">
+                        Happy Birthday, babe 🎂🎁🎈! I love you more than words can say 💕🔥, and I can’t wait to see
+                        what the future holds for us 🌹💫.
+
+                        Forever yours, 💖😘💌
+                    </p>
+                </div>
+                <div class="message-hearts">
+                    <span class="heart-animation">💖</span>
+                    <span class="heart-animation">💕</span>
+                    <span class="heart-animation">💗</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

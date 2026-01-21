@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Nunito:wght@400;700&display=swap');
+body {
+    font-family: 'Nunito', sans-serif;
+    touch-action: manipulation;
+}
+
+h1,
+h2,
+h3,
+.fun-font {
+    font-family: 'Fredoka', sans-serif;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0);
+    }
+
+    80% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.animate-pop {
+    animation: pop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 10px #f472b6;
+    }
+
+    50% {
+        box-shadow: 0 0 25px #ec4899;
+    }
+}
+
+.animate-pulse-glow {
+    animation: pulse-glow 2s infinite;
+}
+
+.mole-hole {
+    overflow: hidden;
+    position: relative;
+    border-radius: 50%;
+}
+
+.cursor-heart {
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>❤️</text></svg>") 16 0, auto;
+}
+
+.hidden-screen {
+    display: none !important;
+}
+
+.visible-screen {
+    display: flex !important;
+}
+
+.slot-reel {
+    transition: transform 0.1s ease-out;
+}
+
+.puzzle-tile {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
