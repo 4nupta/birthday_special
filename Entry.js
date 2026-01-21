@@ -388,15 +388,15 @@ function checkFinalScore() {
 }
 
 let bonusTaps = 0;
-let bonusTimerVal = 30.00;
+let bonusTimerVal = 10.00;
 let bonusInterval;
 
 function initBonus() {
     bonusActive = true;
     bonusTaps = 0;
-    bonusTimerVal = 30.00;
+    bonusTimerVal = 10.00;
     $('love-bar').style.width = '0%';
-    $('bonus-timer').innerText = "30.00";
+    $('bonus-timer').innerText = "10.00";
 
     bonusInterval = setInterval(() => {
         bonusTimerVal -= 0.01;
