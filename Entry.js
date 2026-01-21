@@ -1,6 +1,36 @@
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("Entry.js loaded successfully");
+    console.log("Entry.js loaded successfully");
 });
+
+let clickSound;
+
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("Entry.js loaded successfully");
+    clickSound = document.getElementById("clickSound");
+});
+
+
+function playClick() {
+    if (!clickSound) return;
+    clickSound.currentTime = 0; // rewind for rapid taps
+    clickSound.play().catch(() => { });
+}
+
+let bgStarted = false;
+
+function startBackgroundMusic() {
+    if (bgStarted) return;
+
+    const bg = document.getElementById("bgMusic");
+    if (!bg) return;
+
+    bg.volume = 0.3;
+    bg.play().catch(() => {});
+    bgStarted = true;
+}
+
+
+document.addEventListener("click", startBackgroundMusic, { once: true });
 
 // Change the photos for game 2 and 3
 const HER_FACE_URL = "image/img7.jpeg";
@@ -47,7 +77,7 @@ const startGame = () => {
     initGame1();
 }
 
-let g1_timerVal = 30;
+let g1_timerVal = 10;
 let g1_hits = 0;
 let g1_interval;
 let g1_moleTimeout;
@@ -55,10 +85,10 @@ let g1_moleTimeout;
 function initGame1() {
     const grid = $('mole-grid');
     grid.innerHTML = '';
-    g1_timerVal = 30;
+    g1_timerVal = 10;
     g1_hits = 0;
     $('g1-score').innerText = '0';
-    $('g1-time').innerText = '30';
+    $('g1-time').innerText = '10';
     $('g1-message').innerText = '';
 
     for (let i = 0; i < 9; i++) {
@@ -88,7 +118,8 @@ function showMole() {
     const img = document.createElement('img');
     img.src = HER_FACE_URL;
     img.className = 'mole-img w-full h-full object-cover rounded-full cursor-pointer transform translate-y-full transition duration-100';
-    img.onclick = whackMole;
+    img.onpointerdown = whackMole;
+
 
     hole.appendChild(img);
 
@@ -99,7 +130,9 @@ function showMole() {
 }
 
 function whackMole(e) {
-    e.target.onclick = null;
+    playClick()
+    const mole = e.currentTarget;
+    mole.onpointerdown = null;
     g1_hits++;
     $('g1-score').innerText = g1_hits;
 
@@ -153,6 +186,7 @@ function initGame2() {
 
         item.onclick = function () {
             if (this.classList.contains('found')) return;
+            playClick();
             this.classList.add('found');
             this.style.opacity = 1;
             this.style.transform = "scale(1.5) rotate(10deg)";
@@ -215,6 +249,7 @@ function renderPuzzle() {
 }
 
 function handleTileClick(idx) {
+    playClick();
     if (g3_selected === null) {
         g3_selected = idx;
     } else if (g3_selected === idx) {
@@ -255,6 +290,7 @@ function checkPuzzleWin() {
 
 
 function spinSlots() {
+    playClick();
     const btn = $('spin-btn');
     if (btn.disabled) return;
 
@@ -293,6 +329,7 @@ let g5_answered = 0;
 let g5_points = 0;
 
 function answerQuiz(btn, isCorrect) {
+    playClick();
     if (btn.disabled) return;
 
     const parent = btn.parentElement;
@@ -328,9 +365,20 @@ function finishQuiz() {
     });
 }
 
+function stopBackgroundMusic() {
+    const bg = document.getElementById("bgMusic");
+    if (bg && !bg.paused) {
+        bg.pause();
+        bg.currentTime = 0;
+    }
+}
+
+
 function checkFinalScore() {
     if (totalScore >= 25) {
+        stopBackgroundMusic();
         switchScreen('screen-win');
+
     } else {
         showModal("Oh no... 💔", `Total Score: ${totalScore}/25.<br>Insufficient points for the prize.<br><br>...unless you prove how much you love me?`, () => {
             switchScreen('screen-bonus');
@@ -368,6 +416,7 @@ function initBonus() {
 }
 
 function tapBonus() {
+    playClick();
     if (!bonusActive) return;
     bonusTaps++;
 
@@ -377,7 +426,7 @@ function tapBonus() {
     const btn = $('mash-btn');
     btn.style.transform = `scale(${1 + (Math.random() * 0.2)}) rotate(${Math.random() * 20 - 10}deg)`;
 
-    if (bonusTaps >= 100){
+    if (bonusTaps >= 100) {
         clearInterval(bonusInterval);
         bonusActive = false;
         showModal("I BELIEVE YOU! 💖", "Okay... you win. ❤️", () => {
